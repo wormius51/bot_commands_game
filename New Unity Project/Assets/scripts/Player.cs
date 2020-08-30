@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
     private void pickupLetter(Letter letter)
     {
-        char lowerLetter = char.ToLower(letter.letter);
+        char lowerLetter = char.ToLower(letter.character);
         int index = lowerLetter - 'a';
         Commander.instance.letters[index]++;
         Destroy(letter.gameObject);
