@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
             case "letter":
                 pickupLetter(other.transform.GetComponent<Letter>());
                 break;
+            case "goal":
+                GameManager.instance.nextLevel();
+                break;
         }
     }
 
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour
         char lowerLetter = char.ToLower(letter.character);
         int index = lowerLetter - 'a';
         Commander.instance.letters[index]++;
+        Commander.instance.updateInventory();
         Destroy(letter.gameObject);
     }
 

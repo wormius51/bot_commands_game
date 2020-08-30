@@ -37,6 +37,7 @@ public class Command : MonoBehaviour
             int index = lowerLetter - 'a';
             commander.letters[index]--;  
         }
+        commander.updateInventory();
         onActivate.Invoke();
         return;
     }
