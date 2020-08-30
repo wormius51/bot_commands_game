@@ -8,6 +8,7 @@ public class Commander : MonoBehaviour
     public static Commander instance { get; private set; }
     public int[] letters = new int[26];
     public Transform inventoryPanel;
+    public GameObject missingLettersWarning;
     public Sprite[] lettersSprites;
     // Start is called before the first frame update
     void Start()
@@ -54,5 +55,15 @@ public class Commander : MonoBehaviour
                 g.GetComponent<RectTransform>().SetParent(inventoryPanel);
             }
         }
+    }
+
+    public void warnMissingLetters(bool activate)
+    {
+        missingLettersWarning.SetActive(activate);
+    }
+
+    public void walk(int direction)
+    {
+        Player.instance.walk(direction);
     }
 }

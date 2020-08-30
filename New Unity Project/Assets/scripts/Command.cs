@@ -29,8 +29,12 @@ public class Command : MonoBehaviour
             char lowerLetter = char.ToLower(letter);
             int index = lowerLetter - 'a';
             if (commander.letters[index] == 0)
+            {
+                commander.warnMissingLetters(true);
                 return;
+            }
         }
+        commander.warnMissingLetters(false);
         foreach (char letter in commandString)
         {
             char lowerLetter = char.ToLower(letter);
